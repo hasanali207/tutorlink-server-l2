@@ -15,4 +15,11 @@ export default {
   jwt_refresh_token: process.env.JWT_REFRESH_TOKEN,
   jwt_refresh_expireIn: process.env.JWT_REFRESH_EXPIREIN,
 
+  // SHORJOPAY 
+  sp_endpoint: process.env.SP_ENDPOINT,
+  sp_username: process.env.SP_USERNAME,
+  sp_password: process.env.SP_PASSWORD,
+  sp_prefix: process.env.SP_PREFIX,
+  sp_return_url: process.env.SP_RETURN_URL,
+
 };

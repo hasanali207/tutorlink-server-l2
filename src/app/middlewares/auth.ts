@@ -1,10 +1,10 @@
 // auth.ts
 import { NextFunction, Request, Response } from 'express';
 import jwt, { JwtPayload } from 'jsonwebtoken';
-import config from '../config';
 import { TUserRole } from '../modules/user/user.interface';
 import { catchAsync } from '../utilis/catchAsync';
 import { User } from '../modules/user/user.model';
+import Config from '../Config';
 
 export const auth = (...requiredRoles: TUserRole[]) => {
   return catchAsync(async (req: Request, res: Response, next: NextFunction) => {
@@ -17,10 +17,10 @@ export const auth = (...requiredRoles: TUserRole[]) => {
     // checking if the given token is valid
     const decoded = jwt.verify(
       token,
-      config.jwt_access_token as string,
+      Config.jwt_access_token as string,
     ) as JwtPayload;
 
-    const { role, email } = decoded;
+    const { role, email, } = decoded;
     // checking if the user is exist
     const user = await User.isUserExistsByCustomId(email);
 
