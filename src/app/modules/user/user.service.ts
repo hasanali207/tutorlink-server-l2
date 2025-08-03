@@ -31,15 +31,14 @@ const getUser = async (id: string) => {
 };
 
 const updateUser = async (email: string, payload: Partial<TUser>) => {
-  const isUsersExists = await User.findOne({ email });
-  if (!isUsersExists) {
-    throw new Error('This User is not found!');
+  const isUserExists = await User.findOne({ email });
+  if (!isUserExists) {
+    throw new Error("This User is not found!");
   }
 
   const result = await User.findOneAndUpdate({ email }, payload, {
     new: true,
     runValidators: true,
-    upsert: true,
   });
 
   return result;

@@ -6,6 +6,7 @@ export interface TUser extends Document {
   _id: Types.ObjectId;
   name: string;
   email: string;
+  image?:string;
   password: string;
   role: 'Student' | 'Tutor';
   bio?: string;
@@ -30,7 +31,6 @@ export interface TUser extends Document {
   averageRating?: number;
   isBlocked: boolean;
   isDeleted: boolean;
-
   createdAt: Date;
   updatedAt: Date;
 }

@@ -42,8 +42,9 @@ const getSingleUser = catchAsync(async (req, res) => {
   });
 });
 const updateUser = catchAsync(async (req, res) => {
-  const { email } = req.params;
-  const result = await userServices.updateUser(email, req.body);
+  const { email } = req.params; // get email from route parameter
+
+  const result = await userServices.updateUser(email, req.body); // update by email
 
   sendResponse(res, {
     message: 'User is updated successfully',
@@ -51,6 +52,8 @@ const updateUser = catchAsync(async (req, res) => {
     data: result,
   });
 });
+
+
 
 export const userControllers = {
   getAllUsers,

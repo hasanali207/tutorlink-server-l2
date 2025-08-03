@@ -57,7 +57,7 @@ export const successPayment = async (req: Request, res: Response) => {
     { new: true },
   );
 
-  return res.redirect(`http://localhost:50000/success/${transactionId}`); //here will add frountend base url or vercel url
+  return res.redirect(`http://localhost:3000/studentdashboard/mybookings`); //here will add frountend base url or vercel url
 };
 
 export const failPayment = async (req: Request, res: Response) => {
@@ -67,7 +67,7 @@ export const failPayment = async (req: Request, res: Response) => {
   const result = await handleFailedOrCanceledPayment(transactionId, 'failed');
   console.log(result, 'fail result');
 
-  return res.redirect(`http://localhost:50000/fail`); //here will add frountend base url or vercel link
+  return res.redirect(`http://localhost:3000/fail`); //here will add frountend base url or vercel link
 };
 
 export const cancelPayment = async (req: Request, res: Response) => {
@@ -80,7 +80,7 @@ export const cancelPayment = async (req: Request, res: Response) => {
   //     return res.status(404).json({ error: "Transaction not found" });
   // }
 
-  return res.redirect(`http://localhost:5000/cancel`); //here will add frountend base url or vercel link
+  return res.redirect(`http://localhost:3000/cancel`); //here will add frountend base url or vercel link
 };
 
 export const getMyBookings = catchAsync(async (req, res) => {
